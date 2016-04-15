@@ -16,7 +16,6 @@ int main(int argc, char **argv)
     a->setText(b->text());
     qDebug() << QString::fromStdString(a->text()) << "(" << a->getLengthOfText() << ")" << std::endl;
 
-    int result = a->getLengthOfText() - c->getLengthOfText();
+    return  a->getLengthOfText() - c->getLengthOfText();
 
-    return result;
 }
