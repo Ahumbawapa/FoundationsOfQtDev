@@ -4,6 +4,8 @@
 
 class MyClass : public QObject//Qt class names starts with a capital letter
 {
+    Q_OBJECT
+
 public:
     MyClass( const QString &text, QObject *parent = 0);
 
@@ -12,9 +14,13 @@ public:
     //getter text()
     //setter setText()
     const QString& text() const;
+    int getLengthOfText() const;
+
+public slots:
     void setText(const QString &text);
 
-    int getLengthOfText() const;
+signals:// functions declared in this section will not be implemented
+    void textChanged(const QString &);
 
 private:
     QString m_text;
