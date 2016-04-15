@@ -12,9 +12,9 @@ int main(int argc, char **argv)
     b = new MyClass("ba-a-ar");
     c = new MyClass("baz");
 
-    qDebug() << QString::fromStdString(a->text()) << "(" << a->getLengthOfText() << ")";
+    qDebug() << a->text() << "(" << a->getLengthOfText() << ")";
     a->setText(b->text());
-    qDebug() << QString::fromStdString(a->text()) << "(" << a->getLengthOfText() << ")" << std::endl;
+    qDebug() << a->text() << "(" << a->getLengthOfText() << ")";
 
     return  a->getLengthOfText() - c->getLengthOfText();
 
