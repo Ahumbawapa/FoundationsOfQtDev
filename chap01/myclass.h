@@ -4,7 +4,7 @@
 
 class MyClass : public QObject//Qt class names starts with a capital letter
 {
-    Q_OBJECT
+    Q_OBJECT //marks this class as a class that needs a meta-object
 
 public:
     MyClass( const QString &text, QObject *parent = 0);
@@ -16,6 +16,7 @@ public:
     const QString& text() const;
     int getLengthOfText() const;
 
+//setter methods are natural slots
 public slots:
     void setText(const QString &text);
 

@@ -12,6 +12,13 @@ int main(int argc, char **argv)
     b = new MyClass("ba-a-ar");
     c = new MyClass("baz");
 
+    QObject::connect( a, SIGNAL(textChanged(const QString&)),
+                      b, SLOT(setText(const QString&)) );
+    QObject::connect( b, SIGNAL(textChanged(const QString&)),
+                      c, SLOT(setText(const QString&)) );
+    QObject::connect( c, SIGNAL(textChanged(const QString&)),
+                      b, SLOT(setText(const QString&)) );
+
     qDebug() << a->text() << "(" << a->getLengthOfText() << ")";
     a->setText(b->text());
     qDebug() << a->text() << "(" << a->getLengthOfText() << ")";
