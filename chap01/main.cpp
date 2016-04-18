@@ -1,28 +1,30 @@
-#include <QtDebug>
-#include <QObject>
-#include <QString>
+//#include <QtGui>
+#include <QtWidgets>
+#include <QtWidgets/QLineEdit>
 #include "myclass.h"
 
 int main(int argc, char **argv)
 {
-    QObject parent; //is responsible for deleting the child items
-    MyClass *a, *b, *c;
+    QApplication app(argc, argv);
+    QWidget widget;
+    QLineEdit *lineEdit = new QLineEdit;
+    QLabel *label = new QLabel;
 
-    a = new MyClass("foo");
-    b = new MyClass("ba-a-ar");
-    c = new MyClass("baz");
+    QVBoxLayout *layout = new QVBoxLayout;
+    layout->addWidget(lineEdit);
+    layout->addWidget(label);
+    widget.setLayout(layout);
 
-    QObject::connect( a, SIGNAL(textChanged(const QString&)),
-                      b, SLOT(setText(const QString&)) );
-    QObject::connect( b, SIGNAL(textChanged(const QString&)),
-                      c, SLOT(setText(const QString&)) );
-    QObject::connect( c, SIGNAL(textChanged(const QString&)),
-                      b, SLOT(setText(const QString&)) );
+    MyClass *bridge = new MyClass(QString(""), &app);
 
-    qDebug() << a->text() << "(" << a->getLengthOfText() << ")";
-    a->setText(b->text());
-    qDebug() << a->text() << "(" << a->getLengthOfText() << ")";
+    QObject::connect( lineEdit, SIGNAL(textChanged(const QString&)),
+                      bridge,   SLOT(setText(const QString&)) );
+    QObject::connect( bridge,    SIGNAL(textChanged(const QString&)),
+                      label,    SLOT(setText(const QString&)) );
 
-    return  a->getLengthOfText() - c->getLengthOfText();
+
+
+    widget.show();
+    return app.exec();
 
 }
