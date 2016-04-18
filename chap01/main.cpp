@@ -1,6 +1,6 @@
-//#include <QtGui>
-#include <QtWidgets>
-#include <QtWidgets/QLineEdit>
+#include <QtGui>
+//#include <QtWidgets>
+//#include <QtWidgets/QLineEdit>
 #include "myclass.h"
 
 int main(int argc, char **argv)
