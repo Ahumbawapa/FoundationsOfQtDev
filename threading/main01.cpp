@@ -13,8 +13,9 @@ int main(int argc, char** argv)
     QApplication app(argc, argv);
 
     //create two Thread - Objects
-    TextThread  tt1("TextThread01")
-               ,tt2("TextThread02");
+    TextDevice device;
+    TextThread  tt1("TextThread01", &device)
+               ,tt2("TextThread02", &device);
 
 
     //start the created threads

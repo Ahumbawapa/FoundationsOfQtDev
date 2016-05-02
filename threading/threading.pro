@@ -8,5 +8,7 @@ TARGET = threading
 INCLUDEPATH += .
 
 # Input
-HEADERS += textthread.h
-SOURCES += main01.cpp textthread.cpp
+HEADERS += textthread.h \
+    textdevice.h
+SOURCES += main01.cpp textthread.cpp \
+    textdevice.cpp
