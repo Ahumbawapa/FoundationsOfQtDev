@@ -1,6 +1,10 @@
 #include <QtDebug>
 #include <QString>
 
+
+
+
+
 int main1 (int argc, char **argv)
 {
     QList<QString> list;
