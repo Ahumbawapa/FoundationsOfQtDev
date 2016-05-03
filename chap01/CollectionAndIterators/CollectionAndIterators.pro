@@ -8,4 +8,12 @@ DEPENDPATH += .
 INCLUDEPATH += .
 
 # Input
-SOURCES += main.cpp
+SOURCES += main.cpp \
+    specialList.cpp \
+    StacksAndQueues.cpp \
+    MappingAndHashing.cpp \
+    person.cpp \
+    Hashing01.cpp
+
+HEADERS += \
+    person.h
