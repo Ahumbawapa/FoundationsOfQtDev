@@ -1,34 +1,27 @@
 #include "editdialog.h"
-#include "ui_editdialog.h"
 
-EditDialog::EditDialog(QWidget *parent) :
-    QDialog(parent),
-    ui(new Ui::EditDialog)
+EditDialog::EditDialog(QWidget *parent)
+    :QDialog(parent)
 {
-    ui->setupUi(this);
-}
-
-EditDialog::~EditDialog()
-{
-    delete ui;
+    ui.setupUi(this);
 }
 
 const QString EditDialog::name() const
 {
-    return ui->nameEdit->text().replace("--", "").trimmed();
+    return ui.lineEditName->text().replace("--", "").trimmed();
 }
 
-void  EditDialog::setName(const QString &name)
+void EditDialog::setName(const QString &name)
 {
-    ui->nameEdit->setText(name);
+    ui.lineEditName->setText(name);
 }
 
-const QString EditDialog::number()
+const QString EditDialog::number() const
 {
-    return ui->numberEdit->text().trimmed();
+    return ui.lineEditNumber->text().replace("--", "").trimmed();
 }
 
 void EditDialog::setNumber(const QString &number)
 {
-    ui->numberEdit->setText(number);
+    ui.lineEditNumber->setText(number);
 }

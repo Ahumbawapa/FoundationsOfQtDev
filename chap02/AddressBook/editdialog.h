@@ -1,27 +1,22 @@
 #ifndef EDITDIALOG_H
 #define EDITDIALOG_H
 
-#include <QtWidgets/QDialog>
-
-namespace Ui {
-class EditDialog;
-}
+#include <QDialog>
+#include "ui_editdialog.h"
 
 class EditDialog : public QDialog
 {
-
 public:
-    explicit EditDialog(QWidget *parent = 0);
-    ~EditDialog();
+    EditDialog(QWidget *parent = 0);
 
     const QString name() const;
-    void  setName(const QString& );
+    void  setName(const QString&);
 
     const QString number() const;
-    void  setNumber(const QString& );
+    void  setNumber(const QString&);
 
 private:
-    Ui::EditDialog *ui;
+    Ui::EditDialog ui;
 };
 
 #endif // EDITDIALOG_H
